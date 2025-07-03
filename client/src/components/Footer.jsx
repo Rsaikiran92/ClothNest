@@ -22,6 +22,7 @@ import { FaSnapchatGhost } from "react-icons/fa";
 import { FaApple } from "react-icons/fa";
 import { BsCash } from "react-icons/bs";
 import { useEffect, useState } from "react";
+import icon from "../assets/logo4.png"
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./Footer.css";
@@ -105,7 +106,8 @@ function Footer() {
       )}
 
       <Box className="footer">
-        <Heading className="footer_icon">CLOTHNEST</Heading>
+        {/* <Heading className="footer_icon">CLOTHNEST</Heading> */}
+        <img className="footer_icon" src={icon}/>
         <Box className="footer_details">
           <Box className="footer_detail_box">
             <Heading className="heading">CUSTOMER SERVICE</Heading>
