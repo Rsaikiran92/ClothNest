@@ -1,14 +1,19 @@
 import "./App.css";
 import Footer from "./components/Footer";
+import FooterBar from "./components/FooterBar";
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
+import AllRoutes from "./pages/AllRoutes";
+import { Theme } from "@chakra-ui/react";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Home />
-      <Footer />
+      <Theme appearance="light">
+        <Navbar />
+        <AllRoutes />
+        <FooterBar />
+        <Footer />
+      </Theme>
     </>
   );
 }

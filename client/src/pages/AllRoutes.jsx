@@ -1,0 +1,20 @@
+import { Route, Routes } from "react-router-dom";
+import Home from "./Home";
+import Profile from "./Profile";
+import Cart from "./Cart";
+import Wishlist from "./Wishlist";
+import Products from "./Products/Products";
+
+function AllRoutes() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/wishlist" element={<Wishlist />} />
+      <Route path="/:products" element={<Products />} />
+    </Routes>
+  );
+}
+
+export default AllRoutes;
