@@ -1,11 +1,12 @@
-import { Box, Flex, useMediaQuery } from "@chakra-ui/react";
+import { Box, Center, Flex, Skeleton, useMediaQuery } from "@chakra-ui/react";
 import { useEffect, useReducer } from "react";
 import ProductsContainer from "./ProductsContainer";
 import "./Products.css";
 import { useParams } from "react-router-dom";
-import { Breadcrumb } from "@chakra-ui/react"
-import { LuHouse, LuShirt } from "react-icons/lu"
+import { Breadcrumb } from "@chakra-ui/react";
+import { LuHouse, LuShirt } from "react-icons/lu";
 import Sort from "./Sort";
+import ProductsPagination from "./ProductsPagination";
 
 async function getproduct(dispatch) {
   dispatch({ type: "loading" });
@@ -71,24 +72,30 @@ function Products() {
         </Breadcrumb.List>
       </Breadcrumb.Root>
 
-      <Box className="sort_filter_container" >
-        <Box w={"20%"} borderRight={"1px solid #ebebeb"}>Filters</Box>
+      <Box className="sort_filter_container">
+        <Box w={"20%"} borderRight={"1px solid #ebebeb"}>
+          Filters
+        </Box>
         <Flex w={"80%"} justifyContent={"space-between"} alignItems={"center"}>
-         <Box>Clothes for Men</Box>
-         <Sort/>
+          <Box>Clothes for Men</Box>
+          <Sort />
         </Flex>
       </Box>
 
       <Box className="products_container">
         <Box w={"20%"}></Box>
-        <Flex w={"80%"}>
-          <Box></Box>
+        <Box w={"80%"}>
           <Box className="products">
-            {state.data.map((item) => (
-              <ProductsContainer item={item}></ProductsContainer>
-            ))}
+            {state.loading
+              ? new Array(30).fill(0).map((i) => <Skeleton height="206px" />)
+              : state.data.map((item) => (
+                  <ProductsContainer item={item}></ProductsContainer>
+                ))}
           </Box>
-        </Flex>
+          <Center>
+            <ProductsPagination />
+          </Center>
+        </Box>
       </Box>
     </Box>
   );

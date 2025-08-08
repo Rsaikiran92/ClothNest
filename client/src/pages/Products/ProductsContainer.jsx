@@ -14,7 +14,7 @@ function ProductsContainer({ item }) {
           </Text>
           <FaRegHeart />
         </Flex>
-        <Text truncate w={"180px"} className="decripction">
+        <Text truncate w={"180px"} className="decripction" >
             {item.product_name}
           </Text>
         <div className="pricerating">

@@ -69,7 +69,7 @@ function Footer() {
 
   return (
     <>
-      <Separator
+       <Separator
         borderColor={"#ebebeb"}
         marginTop={"20px"}
       />
@@ -103,7 +103,7 @@ function Footer() {
             </Box>
           ))}
         </Box>
-      )}
+      )} 
 
       <Box className="footer">
         {/* <Heading className="footer_icon">CLOTHNEST</Heading> */}

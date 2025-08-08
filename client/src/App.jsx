@@ -10,8 +10,9 @@ function App() {
     <>
       <Theme appearance="light">
         <Navbar />
-        <AllRoutes />
         <FooterBar />
+        <AllRoutes />
+        
         <Footer />
       </Theme>
     </>

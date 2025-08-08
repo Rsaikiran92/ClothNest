@@ -11,6 +11,7 @@ import SearchBar from "./SearchBar";
 import { useState } from "react"
 import SideMenu from "./SideMenu";
 import { useNavigate } from "react-router-dom";
+import MenuBar from "./MenuBar";
 
 function Navbar() {
   const [open, setOpen] = useState(false)
@@ -22,11 +23,11 @@ function Navbar() {
         style={{ backgroundColor: "white" }}
         position={"sticky"}
         top={"0px"}
-        // zIndex={1500}
+        zIndex={1500}
       >
         <Flex className="navbar">
           <SideMenu/>
-          <img width={"150px"} height={"30px"} src={logo} className="logo"/>
+          <img width={"150px"} height={"30px"} src={logo} className="logo" onClick={()=>nav("/")} />
 
           <Flex
             justifyContent={"space-between"}
@@ -36,7 +37,7 @@ function Navbar() {
           >
             <InputGroup flex="1" startElement={<LuSearch />} className="search_bar">
               <Input
-                placeholder="Search for ptoducts brands and more"
+                placeholder="Search for products brands and more"
            
                 variant="subtle"
                 size={"sm"}
@@ -46,10 +47,11 @@ function Navbar() {
             <IoSearch className="search_icon" onClick={() => setOpen(true)}/>
             <MdAccountCircle  className="account_icon" />
             <FaHeart  className="heart_icon" onClick={()=>nav("/wishlist")} />
-            <FaCartShopping   className="cart_icon"/>
+            <FaCartShopping   className="cart_icon" onClick={()=>nav("/cart")}/>
           </Flex>
         </Flex>
         <SearchBar open={open} setOpen={setOpen}/>
+      
         {/* <Flex
           className="navbar_menu"
           alignItems={"center"}

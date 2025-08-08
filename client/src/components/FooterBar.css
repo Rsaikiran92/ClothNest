@@ -1,8 +1,9 @@
 .footerBar{
     display: none;
+    z-index: 1500;
 }
-@media screen and (max-width: 480px) {
-  /* Styles for small mobile devices */
+@media screen and (max-width: 768px) {
+  /* Styles for tablets and phones */
   .footerBar{
     display: flex;
     width: 100%;
@@ -10,12 +11,19 @@
     justify-content: space-evenly;
     position: fixed;
     bottom: 0;
-    padding: 4% 4%;
+    padding: 2% 2%;
     border-top: 1px solid #ebebeb;
     background-color: white;
   }
   .footerBar_icon{
     font-size: 25px;
   }
+}
+@media screen and (max-width: 480px) {
+  /* Styles for small mobile devices */
+  .footerBar{
+    padding: 4% 4%;
+  }
+  
   
 }

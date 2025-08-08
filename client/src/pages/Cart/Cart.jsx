@@ -1,7 +1,10 @@
 import { Box } from "@chakra-ui/react";
+import CartEmpty from "./CartEmpty";
 
 function Cart() {
-  return <Box>Cart</Box>;
+  return <Box>
+    <CartEmpty/>
+  </Box>;
 }
 
 export default Cart;

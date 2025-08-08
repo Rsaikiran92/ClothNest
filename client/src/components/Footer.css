@@ -14,6 +14,7 @@
 .footer {
   padding: 40px 5%;
   background-color: #1c1c1c;
+  color: white;
 }
 .footer_details {
   display: grid;
@@ -38,6 +39,9 @@
   .footer_details {
     grid-template-columns: repeat(2, 1fr);
   }
+  .footer {
+    margin-bottom: 30px;
+  }
 }
 @media screen and (max-width: 480px) {
   /* Styles for small mobile devices */
@@ -46,5 +50,8 @@
   }
   .footer_section {
     display: block;
+  }
+  .footer {
+    margin-bottom: 30px;
   }
 }

@@ -1,4 +1,4 @@
-import { Button, CloseButton, Drawer, Portal } from "@chakra-ui/react"
+import { CloseButton, Drawer, Portal, Accordion, Span } from "@chakra-ui/react";
 import { IoMenu } from "react-icons/io5";
 
 function SideMenu() {
@@ -10,20 +10,25 @@ function SideMenu() {
       <Portal>
         <Drawer.Backdrop />
         <Drawer.Positioner>
-          <Drawer.Content style={{backgroundColor:"white"}}>
-            <Drawer.Context >
-              {(store) => (
-                <Drawer.Body pt="6" spaceY="3">
-                  <p>Drawer is open: {store.open ? "true" : "false"}</p>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.
-                  </p>
-                  <button onClick={() => store.setOpen(false)}>Close</button>
-                </Drawer.Body>
-              )}
-            </Drawer.Context>
+          <Drawer.Content style={{ backgroundColor: "white", color: "black",zIndex:"2000" }}>
+            <Drawer.Header>
+              <Drawer.Title>Drawer Title</Drawer.Title>
+            </Drawer.Header>
+            <Drawer.Body>
+              <Accordion.Root collapsible>
+                {items.map((item, index) => (
+                  <Accordion.Item key={index} value={item.value}>
+                    <Accordion.ItemTrigger>
+                      <Span flex="1">{item.title}</Span>
+                      <Accordion.ItemIndicator />
+                    </Accordion.ItemTrigger>
+                    <Accordion.ItemContent>
+                      <Accordion.ItemBody>{item.text}</Accordion.ItemBody>
+                    </Accordion.ItemContent>
+                  </Accordion.Item>
+                ))}
+              </Accordion.Root>
+            </Drawer.Body>
             <Drawer.CloseTrigger asChild>
               <CloseButton size="sm" />
             </Drawer.CloseTrigger>
@@ -35,3 +40,22 @@ function SideMenu() {
 }
 
 export default SideMenu;
+
+const items = [
+  { value: "a", title: "Men", text: "Some value 1..." },
+  { value: "b", title: "Women", text: "Some value 2..." },
+  { value: "c", title: "Kids", text: "Some value 3..." },
+  { value: "d", title: "Beauty", text: "" },
+  { value: "e", title: "Genz", text: "" },
+  { value: "f", title: "Sneakers", text: "" }
+];
+
+{
+  /* <Box>Men</Box>
+          <Box>Women</Box>
+          <Box>Kids</Box>
+          <Box>Home</Box>
+          <Box>Beauty</Box>
+          <Box>Genz</Box>
+          <Box>Sneakers</Box> */
+}

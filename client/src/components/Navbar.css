@@ -12,11 +12,12 @@
 }
 .navbar_icon{
   font-size: 30px;
+  cursor: pointer;
 }
 .search_input{
   width: 500px;
 }
-/* .navbar_menu{
+.navbar_menu{
   padding: 0% 5%;
   color: black;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -26,10 +27,10 @@
   padding: 10px 15px;
 }
 .navbar_menu>div:hover{
-  background-color: yellow;
-  color: black;
+  background-color: black;
+  color: white;
   cursor: pointer;
-} */
+}
 @media (max-width: 480px) {
   /* Styles for small mobile devices */
   .navbar {
@@ -73,5 +74,17 @@
   .navbar_icon{
     font-size: 25px;
   }
-
+  .account_icon,
+  .cart_icon {
+    display: none;
+  }
+  .menu_icon {
+    display: block;
+    font-size: 25px;
+  }
+  .logo {
+    position: absolute;
+    left: 17%;
+    transform: translateX(-50%);
+  }
 }  
