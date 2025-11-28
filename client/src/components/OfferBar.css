@@ -1,0 +1,12 @@
+.nav_offers_bar {
+  background-color: #1c1c1c;
+  font-size: 0.8rem;
+  color: yellow;
+  padding: 5px 0;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+@media screen and (max-width: 480px) {
+  /* Styles for small mobile devices */
+  
+}
