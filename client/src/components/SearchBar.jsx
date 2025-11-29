@@ -20,18 +20,17 @@ function SearchBar({ open, setOpen }) {
           <Drawer.Content
             marginTop={"75px"}
             backgroundColor={"white"}
-            
           >
             <Drawer.Body padding={2}>
-              <Flex gap={"20px"}  width={"100%"}> 
+              <Flex gap={"20px"}  width={"100%"} alignItems={"center"}> 
                 <Input
                   placeholder="Search for ptoducts brands and more"
                   variant="subtle"
                   size={"sm"}
                 />
               
-                  <CloseButton size="sm" />
-          
+                  
+              <Button variant="solid" backgroundColor={"black"} color={"white"}>Search</Button>
               </Flex>
             </Drawer.Body>
           </Drawer.Content>
