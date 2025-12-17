@@ -53,7 +53,7 @@ function Navbar() {
               />
             </InputGroup>
             <IoSearch className="search_icon" onClick={() => setOpen(true)} />
-            <MdAccountCircle className="account_icon" />
+            <MdAccountCircle className="account_icon"  />
             <FaHeart className="heart_icon" onClick={() => nav("/wishlist")} />
             <FaCartShopping
               className="cart_icon"

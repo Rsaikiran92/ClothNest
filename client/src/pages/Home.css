@@ -1,0 +1,35 @@
+.home{
+    margin-top: 20px;
+}
+.banner{
+    width: 100%;
+    height: 400px;
+}
+
+.category{
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 40px;
+  padding: 0 5%;
+}
+.category_box{
+  padding: 20px;
+  background-color: #1c1c1c;
+  border-radius: 15px;
+  color: white;
+}
+
+.category_box:hover{
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  /* Styles for tablets and phones */
+  
+}
+@media screen and (max-width: 480px) {
+  /* Styles for small mobile devices */
+  .banner{
+    height: 200px;
+}
+}
