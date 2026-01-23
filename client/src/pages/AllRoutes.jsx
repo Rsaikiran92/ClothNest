@@ -3,6 +3,7 @@ import Home from "./Home";
 import Profile from "./Profile/Profile";
 import Cart from "./Cart/Cart";
 import Wishlist from "./Wishlist";
+import Products from "./Product/Products";
 
 
 function AllRoutes() {
@@ -12,6 +13,7 @@ function AllRoutes() {
       <Route path="/profile" element={<Profile />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/wishlist" element={<Wishlist />} />
+      <Route path="/:products" element={<Products />} />
     </Routes>
   );
 }

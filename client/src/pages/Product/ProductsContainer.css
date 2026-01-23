@@ -1,0 +1,48 @@
+.cartbutton{
+    background-color: #1c1c1c;
+    color: white;
+    letter-spacing: 1px;
+    padding: 5px 0px;
+    padding-bottom: 3px;
+    width: 100%;
+    text-align: center;
+    display: none;
+    font-weight: bold;
+}
+.item{
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    cursor: pointer;
+}
+.item:hover .cartbutton{
+    display: block;
+}
+.item:hover .img{
+    height: 183px;
+}
+.price{
+    text-decoration: line-through;
+    font-size: 12px;
+    padding-top: 5px;
+    color: #cdcad9;
+}
+.decripction{
+    font-size: 12px;
+    font-weight: 500;
+    color: #cdcad9;
+}
+.offer{
+    color: red;
+}
+
+.ratingcount{
+    color: #cdcad9;
+}
+.pricerating{
+    display: flex;
+    gap: 5px;
+
+}
+.img{
+    width: 100%;
+    height: 215px;
+}
