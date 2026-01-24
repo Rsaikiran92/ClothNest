@@ -1,79 +1,80 @@
-import { Box, Button ,CloseButton,Skeleton,SkeletonCircle,Text} from "@chakra-ui/react";
-import { useEffect, useReducer } from "react";
-import { IoCloseSharp } from "react-icons/io5"
-import "./Wishlist.css"
+import {
+  Box,
+  Button,
+  CloseButton,
+  Skeleton,
+  SkeletonCircle,
+  Text,
+} from "@chakra-ui/react";
+import {  toaster  } from "../components/ui/toaster"
+import { useEffect } from "react";
+import { IoCloseSharp } from "react-icons/io5";
+import { loading, success, error } from "../redux/slices/wishlistSlice";
+import "./Wishlist.css";
+import { useSelector, useDispatch } from "react-redux";
 
-async function getproduct(dispatch) {
-  dispatch({ type: "loading" });
+async function getwishlist(dispatch) {
+  dispatch(loading());
   try {
     let Products = await fetch(
-      "https://purplebackend.onrender.com/products/shampoo"
+      "https://69734d1eb5f46f8b5826cd7e.mockapi.io/api/v1/cart",
     );
     Products = await Products.json();
-    console.log(Products)
-    dispatch({ type: "success", payload: Products });
+    dispatch(success(Products));
   } catch (error) {
-    dispatch({ type: "error" });
+    dispatch(error());
     console.log(error);
   }
 }
 
-const initial = {
-  loading: false,
-  data: [],
-  error: false,
-};
-
-function reducer(state, action) {
-  console.log(action);
-  switch (action.type) {
-    case "loading":
-      return { ...state, loading: true };
-    case "success":
-      return { ...state, loading: false, data: action.payload };
-    case "error":
-      return { ...state, loading: false, error: true };
-    default:
-      return state;
-  }
-}
-
 function Wishlist() {
-  const [state, dispatch] = useReducer(reducer, initial);
+  const state = useSelector((state) => state.wishlist);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getproduct(dispatch);
+    getwishlist(dispatch);
   }, []);
 
-  function handleclick(e){
-    if(e.target.localName=="img" || e.target.localName=="p"){
-        //navigate to product details
-        console.log("products details")
-    }else if(e.target.localName=="svg"){
-        //remove product from wishlist
-        console.log("remove product")
-    }else{
-        // move to cart
-        console.log("move to cart")
+  function handleclick(e) {
+    if (e.target.localName == "img" || e.target.localName == "p") {
+      //navigate to product details
+      
+      console.log("products details");
+    } else if (e.target.localName == "svg") {
+      //remove product from wishlist
+      return toaster.create({
+        title: `Remove form wishlist`,
+        type: "success",
+      });
+      console.log("remove product");
+    } else {
+      // move to cart
+      return toaster.create({
+        title: `move to cart`,
+        type: "success",
+      });
+      console.log("move to cart");
     }
   }
 
   return (
     <Box className="wishlist_container">
-      <Box>My Wishlist  items</Box>
+      <Box>My Wishlist items</Box>
       <Box className="wishlist_products">
-        {state.loading?new Array(30).fill(0).map((i)=><Skeleton  height="200px" /> ):
-        state.data.map((item) => (
-          <Box key={item.id} onClick={(e)=>handleclick(e)}>
-            <img src={item.image} />
-            <Box className="close_btn"><IoCloseSharp /></Box>
-            
-            <Text>{item.product_name}</Text>
-            <Text>Rs.{item.price}</Text>
-            <Box className="cart_btn">MOVE TO CART</Box>
-          </Box>
-          
-        ))}
+        {state.loading
+          ? new Array(30).fill(0).map((i) => <Skeleton height="200px" />)
+          : state.data.map((item) => (
+              <Box key={item.id} onClick={(e) => handleclick(e)}>
+                <img src={item.image} />
+                <Box className="close_btn">
+                  <IoCloseSharp />
+                </Box>
+
+                <Text>{item.product_name}</Text>
+                <Text>Rs.{item.price}</Text>
+                <Box className="cart_btn">MOVE TO CART</Box>
+              </Box>
+            ))}
       </Box>
     </Box>
   );

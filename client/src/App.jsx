@@ -1,17 +1,19 @@
 import Navbar from "./components/Navbar";
 import { Theme } from "@chakra-ui/react";
+import { Toaster } from "./components/ui/toaster";
 import "./App.css";
 import Footer from "./components/Footer";
 import FooterBar from "./components/FooterBar";
-import Home from "./pages/Home";
 import AllRoutes from "./pages/AllRoutes";
+import Loading from "./components/Loading";
 
 function App() {
   return (
     <>
       <Theme appearance="light">
+        <Toaster />
         <Navbar />
-        <AllRoutes/>
+        <AllRoutes />
         <FooterBar />
         <Footer />
       </Theme>

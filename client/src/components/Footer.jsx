@@ -12,17 +12,17 @@ import {
 } from "@chakra-ui/react";
 import { TbTruckDelivery } from "react-icons/tb";
 import { LuMessagesSquare } from "react-icons/lu";
-import { FaArrowsRotate } from "react-icons/fa6";
+import { FaArrowsRotate, FaSquareXTwitter, FaInstagram } from "react-icons/fa6";
 import { MdOutlinePrivacyTip } from "react-icons/md";
-import { FaInstagram } from "react-icons/fa6";
-import { FaFacebookSquare } from "react-icons/fa";
-import { FaTwitterSquare } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
-import { FaSnapchatGhost } from "react-icons/fa";
-import { FaApple } from "react-icons/fa";
+import {
+  FaFacebookSquare,
+  FaTwitterSquare,
+  FaSnapchatGhost,
+  FaApple,
+} from "react-icons/fa";
 import { BsCash } from "react-icons/bs";
 import { useEffect, useState } from "react";
-import icon from "../assets/logo4.png"
+import icon from "../assets/logo4.png";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./Footer.css";
@@ -69,10 +69,7 @@ function Footer() {
 
   return (
     <>
-       <Separator
-        borderColor={"#ebebeb"}
-        marginTop={"20px"}
-      />
+      <Separator borderColor={"#ebebeb"} marginTop={"20px"} />
       {isMobile ? (
         <Box className="footer_section">
           <Carousel
@@ -103,11 +100,11 @@ function Footer() {
             </Box>
           ))}
         </Box>
-      )} 
+      )}
 
       <Box className="footer">
         {/* <Heading className="footer_icon">CLOTHNEST</Heading> */}
-        <img className="footer_icon" src={icon}/>
+        <img className="footer_icon" src={icon} />
         <Box className="footer_details">
           <Box className="footer_detail_box">
             <Heading className="heading">CUSTOMER SERVICE</Heading>

@@ -6,7 +6,7 @@ import "./ProductsContainer.css";
 function ProductsContainer({ item }) {
   return (
     <Box className="item">
-      <img className="img" src={item.avatar} alt="image" />
+      <img className="img" src={item.product_img} alt="image" />
       <Box p={"8px"}>
         <Flex justifyContent={"space-between"} alignItems={"center"}>
           <Text truncate w={"170px"}>
@@ -15,7 +15,7 @@ function ProductsContainer({ item }) {
           <FaRegHeart />
         </Flex>
         <Text truncate w={"180px"} className="decripction" >
-            {item.productName}
+            {item.product_decripction}
           </Text>
         <div className="pricerating">
           <div>

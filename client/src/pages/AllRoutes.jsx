@@ -4,6 +4,7 @@ import Profile from "./Profile/Profile";
 import Cart from "./Cart/Cart";
 import Wishlist from "./Wishlist";
 import Products from "./Product/Products";
+import Errorpage from "../components/Errorpage";
 
 
 function AllRoutes() {
@@ -14,6 +15,7 @@ function AllRoutes() {
       <Route path="/cart" element={<Cart />} />
       <Route path="/wishlist" element={<Wishlist />} />
       <Route path="/:products" element={<Products />} />
+      <Route path="*" element={<Errorpage/>} />
     </Routes>
   );
 }

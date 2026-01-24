@@ -1,9 +1,9 @@
-import { Box, Flex, Separator } from "@chakra-ui/react";
+import { Box, Separator } from "@chakra-ui/react";
 import { FaHome } from "react-icons/fa";
 import { MdAccountCircle } from "react-icons/md";
 import { FaCartShopping } from "react-icons/fa6";
-import "./FooterBar.css"
 import { useNavigate } from "react-router-dom";
+import "./FooterBar.css"
 
 function FooterBar() {
   const nav=useNavigate()

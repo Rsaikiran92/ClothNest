@@ -1,60 +1,78 @@
-import { Box, Center, Flex, Skeleton, useMediaQuery } from "@chakra-ui/react";
-import { useEffect, useReducer } from "react";
-import ProductsContainer from "./ProductsContainer";
-import "./Products.css";
-import { useParams } from "react-router-dom";
-import { Breadcrumb } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Flex,
+  Skeleton,
+  useMediaQuery,
+  Breadcrumb,
+  Spinner,
+} from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import { LuHouse, LuShirt } from "react-icons/lu";
-import Sort from "./Sort";
+import { useSelector, useDispatch } from "react-redux";
+import { loading, success, error } from "../../redux/slices/productSlice";
+import { toaster } from "../../components/ui/toaster";
+import ProductsContainer from "./ProductsContainer";
 import ProductsPagination from "./ProductsPagination";
-import { useState } from "react";
+import Sort from "./Sort";
+import "./Products.css";
+import Loading from "../../components/Loading";
 
-async function getproduct(dispatch, page) {
-  dispatch({ type: "loading" });
-  try {
-    let Products = await fetch(
-      `https://69734d1eb5f46f8b5826cd7e.mockapi.io/api/v1/product?page=${page}&limit=20`,
-    );
-    Products = await Products.json();
-    dispatch({ type: "success", payload: Products });
-  } catch (error) {
-    dispatch({ type: "error" });
-    console.log(error);
-  }
-}
-
-const initial = {
-  loading: false,
-  data: [],
-  error: false,
-};
-
-function reducer(state, action) {
-  console.log(action);
-  switch (action.type) {
-    case "loading":
-      return { ...state, loading: true };
-    case "success":
-      return { ...state, loading: false, data: action.payload };
-    case "error":
-      return { ...state, loading: false, error: true };
-    default:
-      return state;
-  }
-}
 
 function Products() {
-  const [state, dispatch] = useReducer(reducer, initial);
   const [page, setPage] = useState(1);
   const [count, setCount] = useState(30);
- 
+  const state = useSelector((state) => state.product);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getproduct(dispatch, page);
+    async function getproduct() {
+      dispatch(loading());
+      try {
+        let Products = await fetch(
+          `https://69734d1eb5f46f8b5826cd7e.mockapi.io/api/v1/product?page=${page}&limit=20`,
+        );
+        Products = await Products.json();
+        dispatch(dispatch(success(Products)));
+      } catch (error) {
+        dispatch(error());
+        console.log(error);
+      }
+    }
+    getproduct();
   }, [page]);
+
+  function handleclick(e) {
+    console.log(e.target.localName);
+    if (e.target.localName == "img" || e.target.localName == "p") {
+      //navigate to product details
+
+      console.log("products details");
+    } else if (e.target.localName == "svg") {
+      //remove product from wishlist
+      return toaster.create({
+        title: `Move to wishlist`,
+        type: "success",
+      });
+    } else {
+      // move to cart
+      return toaster.create({
+        title: `Added to cart`,
+        type: "success",
+      });
+    }
+  }
 
   return (
     <Box>
+      {/* <Box pos="absolute" inset="0" >
+        <Center h="100vh">
+          <Spinner color="teal.500" />
+        </Center>
+      </Box> */}
+
+     
+
       <Breadcrumb.Root>
         <Breadcrumb.List>
           <Breadcrumb.Item>
@@ -88,9 +106,9 @@ function Products() {
         <Box w={"20%"}></Box>
         <Box w={"80%"}>
           
-          <Box className="products">
+          <Box className="products" onClick={(e) => handleclick(e)}>
             {state.loading
-              ? new Array(count).fill(0).map((i) => <Skeleton height="206px" />)
+              ? <Loading/>
               : state.data.map((item) => (
                   <ProductsContainer item={item}></ProductsContainer>
                 ))}
@@ -99,7 +117,6 @@ function Products() {
           <Center>
             <ProductsPagination page={page} setPage={setPage} count={count} />
           </Center>
-
         </Box>
       </Box>
     </Box>

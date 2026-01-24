@@ -63,7 +63,7 @@ function Navbar() {
         </Flex>
         <SearchBar open={open} setOpen={setOpen} />
 
-        {/* <Flex
+        <Flex
           className="navbar_menu"
           alignItems={"center"}
           justifyContent={"space-between"}
@@ -75,7 +75,7 @@ function Navbar() {
           <Box>Beauty</Box>
           <Box>Genz</Box>
           <Box>Sneakers</Box>
-        </Flex> */}
+        </Flex>
       </Box>
     </>
   );
