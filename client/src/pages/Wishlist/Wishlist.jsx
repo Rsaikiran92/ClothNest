@@ -6,10 +6,10 @@ import {
   SkeletonCircle,
   Text,
 } from "@chakra-ui/react";
-import {  toaster  } from "../components/ui/toaster"
+import { toaster } from "../../components/ui/toaster";
 import { useEffect } from "react";
 import { IoCloseSharp } from "react-icons/io5";
-import { loading, success, error } from "../redux/slices/wishlistSlice";
+import { loading, success, error } from "../../redux/slices/wishlistSlice";
 import "./Wishlist.css";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -38,7 +38,7 @@ function Wishlist() {
   function handleclick(e) {
     if (e.target.localName == "img" || e.target.localName == "p") {
       //navigate to product details
-      
+
       console.log("products details");
     } else if (e.target.localName == "svg") {
       //remove product from wishlist

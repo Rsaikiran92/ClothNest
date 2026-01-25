@@ -1,10 +1,10 @@
 import { Box, Center, Text } from "@chakra-ui/react";
 import Carousel from "react-multi-carousel";
-import Banner1 from "../assets/Banner1.png";
-import Banner2 from "../assets/Banner2.png";
-import Banner3 from "../assets/Banner3.png";
-import ATXPP from "../assets/ATXPP.webp";
-import Bank from "../assets/Bank-Strip.webp";
+import Banner1 from "../../assets/Banner1.png";
+import Banner2 from "../../assets/Banner2.png";
+import Banner3 from "../../assets/Banner3.png";
+import ATXPP from "../../assets/ATXPP.webp";
+import Bank from "../../assets/Bank-Strip.webp";
 import "./Home.css";
 
 const responsive = {
