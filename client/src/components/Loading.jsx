@@ -2,6 +2,7 @@ import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import loading from "../assets/loading.lottie";
 import { Box } from "@chakra-ui/react";
 
+
 function Loading() {
   return (
     <Box
