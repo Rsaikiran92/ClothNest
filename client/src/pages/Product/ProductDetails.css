@@ -1,0 +1,14 @@
+.product_detail{
+    padding: 4% 5%;
+}
+.product_detail_container{
+    display: flex;
+    gap: 20px;
+  
+}
+.product_detail_container>:first-child{
+    width: 60%;
+}
+.product_detail_container>:last-child{
+    width: 40%;
+}

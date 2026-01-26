@@ -19,7 +19,7 @@ function ProductsContainer({ item }) {
           </Text>
         <div className="pricerating">
           <div>
-            <b>Rs. {item.d_price}</b>
+            <b>Rs. {item.price}</b>
           </div>
           <div className="price">{item.price}</div>
           <div className="offer">{item.offer}</div>
