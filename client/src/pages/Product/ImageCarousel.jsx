@@ -3,7 +3,7 @@ import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 
 const ImageCarousel = () => {
   return (
-    <Carousel.Root slideCount={items.length} maxW="2xl" gap="4">
+    <Carousel.Root slideCount={items.length} maxW="3xl" gap="4" loop={true}>
       <Carousel.Control justifyContent="center" gap="4" width="full">
         <Carousel.PrevTrigger asChild>
           <IconButton size="xs" variant="outline">
@@ -12,7 +12,7 @@ const ImageCarousel = () => {
         </Carousel.PrevTrigger>
 
         <Flex gap={"10px"}>
-          <Carousel.IndicatorGroup style={{ display:"flex",flexDirection:"column"}}>
+          <Carousel.IndicatorGroup style={{ display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
             {items.map((item, index) => (
               <Carousel.Indicator
                 key={index}
@@ -26,7 +26,7 @@ const ImageCarousel = () => {
               >
                 <Image
                   w="20"
-                  aspectRatio="16/16"
+                  aspectRatio="18/18"
                   src={item.url}
                   alt={item.label}
                   objectFit="cover"

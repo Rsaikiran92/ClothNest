@@ -6,6 +6,9 @@ import Banner3 from "../../assets/Banner3.png";
 import ATXPP from "../../assets/ATXPP.webp";
 import Bank from "../../assets/Bank-Strip.webp";
 import "./Home.css";
+import MotionFrame from "./MotionFrame";
+import ImageCarousel from "../Product/ImageCarousel";
+import RelatedProducts from "../Product/RelatedProducts";
 
 const responsive = {
   superLargeDesktop: {
@@ -38,16 +41,27 @@ function Home() {
         <img className="banner" src={Banner2} />
         <img className="banner" src={Banner3} />
       </Carousel>
+
+       <RelatedProducts />
+
       <Box>
         <img src={ATXPP} />
       </Box>
+       
+       <RelatedProducts />
+
       <Center>
         <img src={Bank} />
       </Center>
+      <MotionFrame />
+
+      <RelatedProducts />
+
       <Box>
         <img src="https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2025/JULY/30/3NjKUuUg_dfe0a6415c0a4bc7a8e09fd04fdb4f43.jpg" />
       </Box>
-      {/* <Box className="category">
+
+      <Box className="category">
         {Array(13)
           .fill(0)
           .map((i) => (
@@ -57,17 +71,21 @@ function Home() {
                 <Text as={"b"}>Casual wear</Text>
               </Center>
               <Center>
-                <Text as={"b"} textStyle="xl" >40-80% OFF</Text>
+                <Text as={"b"} textStyle="xl">
+                  40-80% OFF
+                </Text>
               </Center>
               <Center>
-                <Text as={"b"} >Shop Now</Text>
+                <Text as={"b"}>Shop Now</Text>
               </Center>
             </Box>
           ))}
-      </Box> */}
+      </Box>
       <Center>
         <img src="https://media6.ppl-media.com/tr:w-1280,c-at_max,pr-true,dpr-2,f-gif/mediafiles/ecomm/misc/1674661778_ft-new-strip-web-1280-x-272-1.gif" />
       </Center>
+
+      <RelatedProducts />
     </Box>
   );
 }

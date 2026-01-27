@@ -42,8 +42,9 @@ const ProductDetails = () => {
               >
                 $450
               </Text>
+              <Button variant="surface">ADD TO WISHLIST</Button>
               <Button variant="solid">ADD TO CART</Button>
-              <Button  variant="solid">ADD TO WISHLIST</Button>
+              
 
               <Accordion.Root multiple defaultValue={["b"]}>
                 {items.map((item, index) => (
